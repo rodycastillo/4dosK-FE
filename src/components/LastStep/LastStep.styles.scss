@@ -1,0 +1,57 @@
+.lastStep {
+    background-image: url("../../assets/img/app/04/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    &_contain {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        justify-content: center;
+        &-phrase {
+            align-self: center;
+        }
+        &-congrats {
+            align-self: flex-end;
+            justify-content: flex-end;
+            border-radius: 3rem 0 3rem 0;
+            text-align: center;
+            width: 630px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 3rem;
+            margin: auto;
+            background-color: rgb(173, 191, 0);
+            padding: 1.5rem 0;            
+            h1 {
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 32px;
+                font-weight: 700;
+            }
+            p {
+                font-size: 23px;
+                color: #fff;
+                margin-bottom: 0.5rem;
+                line-height: 28px;
+            }
+            button {
+                border: none;
+                background-color: #d9d9d8;
+                padding: 5px 10px;
+                border-radius: 5px;
+                color: rgb(173, 191, 0);
+            }
+        }
+    }
+    &_brand {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
