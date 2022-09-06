@@ -22,7 +22,7 @@ export const SecondStep = () => {
   const takePicture = () => {
     const imgSrc = webCamRef.current.getScreenshot({
       width: 1080,
-      height: 1080,
+      height: 810,
     });
     console.log("imageSrc", imgSrc);
     setImg(imgSrc);
@@ -69,7 +69,9 @@ export const SecondStep = () => {
             Reintentar
           </button>{" "}
           <br />
-          <button onClick={handleNextStep}>Enviar</button>
+          <button onClick={handleNextStep} disabled={isShow}>
+            Enviar
+          </button>
         </div>
       </div>
       <div className="secondStep_camera">

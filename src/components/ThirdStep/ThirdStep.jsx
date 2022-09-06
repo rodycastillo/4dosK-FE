@@ -11,7 +11,7 @@ export const ThirdStep = () => {
   const [data, setData] = useState({});
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(JSON.stringify({ ...data, comentario }));
+    alert(JSON.stringify({ comentario: comentario, ...data }));
     action({
       type: "STEP_THREE",
       payload: {
