@@ -9,12 +9,12 @@ export const FirstStep = () => {
   const { action } = useContext(AppContext);
 
   const [userData, setUserData] = useState({
-    names: "",
-    lastname: "",
+    nombres: "",
+    apellidos: "",
     email: "",
-    age: false,
-    allowData: false,
-    termsAndConditions: false,
+    mayor_edad: 1,
+    uso_informacion: 0,
+    terminos_politicas: 0,
   });
 
   const handleChangeInput = (e) => {
@@ -25,6 +25,7 @@ export const FirstStep = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(JSON.stringify(userData, null, 4));
+    localStorage.setItem("usr_42k", JSON.stringify(userData));
     action({
       type: "STEP_TWO",
       payload: {
@@ -54,8 +55,8 @@ export const FirstStep = () => {
                 type="text"
                 className="form-control"
                 placeholder="Nombres"
-                name="names"
-                value={userData.names}
+                name="nombres"
+                value={userData.nombres}
                 onChange={handleChangeInput}
                 required
               />
@@ -65,8 +66,8 @@ export const FirstStep = () => {
                 type="text"
                 className="form-control"
                 placeholder="Apellidos"
-                name="lastname"
-                value={userData.lastname}
+                name="apellidos"
+                value={userData.apellidos}
                 onChange={handleChangeInput}
                 required
               />
@@ -88,8 +89,8 @@ export const FirstStep = () => {
                 <label>
                   <input
                     type="radio"
-                    value={true}
-                    name="age"
+                    value={1}
+                    name="mayor_edad"
                     required
                     onChange={handleChangeInput}
                   />{" "}
@@ -98,8 +99,8 @@ export const FirstStep = () => {
                 <label>
                   <input
                     type="radio"
-                    value={false}
-                    name="age"
+                    value={0}
+                    name="mayor_edad"
                     onChange={handleChangeInput}
                   />{" "}
                   No
@@ -128,13 +129,13 @@ export const FirstStep = () => {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  value=""
-                  id="allowDataUser"
-                  name="allowData"
+                  value={1}
+                  id="uso_informacionUser"
+                  name="uso_informacion"
                   onChange={(e) =>
                     setUserData({
                       ...userData,
-                      [e.target.name]: e.target.checked,
+                      [e.target.name]: 1,
                     })
                   }
                 />
@@ -157,13 +158,13 @@ export const FirstStep = () => {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  value={true}
-                  id="termsAndConditions"
-                  name="termsAndConditions"
+                  value={1}
+                  id="terminos_politicas"
+                  name="terminos_politicas"
                   onChange={(e) =>
                     setUserData({
                       ...userData,
-                      [e.target.name]: e.target.checked,
+                      [e.target.name]: 1,
                     })
                   }
                 />
@@ -196,7 +197,7 @@ export const FirstStep = () => {
               </div>
             </div>
             <button type="submit" className="firstStep_contain-form-box-button">
-              Siguiente
+              Enviar
             </button>
           </div>
           <div className="firstStep_contain-form-brand">

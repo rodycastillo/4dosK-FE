@@ -2,8 +2,9 @@
   background-image: url("../../assets/img/app/01/fondo.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
-  width: 100vw;
+  height: 810px;
+  width: 1080px;
+  overflow: hidden;
   &_contain {
     display: flex;
     justify-content: space-between;
@@ -18,8 +19,8 @@
     &-form {
       background-color: #fff;
       border-radius: 42.5px 0 0 42.5px;
-      width: 54%;
-      height: 100%;
+      width: 584.77px;
+      height: 810px;
       display: flex;
       flex-direction: column;
       &-box {
@@ -27,18 +28,21 @@
         margin-top: 3rem;
         h1 {
           color: #c6d420;
-          font-size: 82px;
+          font-size: 82.14px;
+          font-family: "Roboto-MediumItalic";
         }
         h3 {
           color: #c6d420;
           font-size: 27px;
           margin-bottom: 1rem;
+          font-family: "Roboto-MediumItalic";
         }
         div {
           input {
             background-color: #d8d9d9;
             color: #fff;
             font-size: 17px;
+            font-family: "Roboto-Light";
           }
           input:focus {
             background-color: #d8d9d9;
@@ -49,6 +53,7 @@
           input::placeholder {
             color: #fff;
             font-size: 17px;
+            font-family: "Roboto-Light";
           }
         }
         &-age {
@@ -57,6 +62,7 @@
           padding: 20px 0;
           span {
             font-size: 17px;
+            font-family: "Roboto-Light";
           }
           .radio {
             margin-left: 2rem;
@@ -64,11 +70,12 @@
               padding-right: 2rem;
               font-size: 17px;
               color: #393938;
+              font-family: "Roboto-Light";
               input[type="radio"]:after {
                 width: 15px;
                 height: 15px;
                 border-radius: 15px;
-                top: -4px;
+                top: -3px;
                 left: -1px;
                 position: relative;
                 background-color: #fff;
@@ -82,7 +89,7 @@
                 width: 15px;
                 height: 15px;
                 border-radius: 15px;
-                top: -4px;
+                top: -3px;
                 left: -1px;
                 position: relative;
                 background-color: #C6D420;
@@ -97,10 +104,12 @@
         p {
           font-size: 12px;
           color: #393938;
+          font-family: "Roboto-Light";
           a {
             font-weight: 800;
             color: #000;
             text-decoration: none;
+            font-family: "Roboto-Bold";
           }
         }
         &-allows {
@@ -112,10 +121,12 @@
             .form-check-label {
               color: #393938;
               font-size: 11px;
+              font-family: "Roboto-Light";
               a {
                 color: #393938;
                 font-weight: 800;
                 text-decoration: none;
+                font-family: "Roboto-Bold";
               }
             }
           }
@@ -127,8 +138,11 @@
           color: #fff;
           text-transform: uppercase;
           border-radius: 5px;
-          font-size: 12px;
-          padding: 10px 20px;
+          font-size: 11.9px;
+          text-align: center;
+          width: 85.71px;
+          height: 30px;
+          font-family: "Roboto-Regular";
         }
       }
       &-brand {

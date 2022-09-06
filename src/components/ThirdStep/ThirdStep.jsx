@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import phrase from "../../assets/img/app/03/phrase.png";
@@ -7,10 +7,11 @@ import "./ThirdStep.styles.scss";
 
 export const ThirdStep = () => {
   const { action } = useContext(AppContext);
-  const [comment, setComment] = useState("");
+  const [comentario, setComentario] = useState("");
+  const [data, setData] = useState({});
   const handleSubmit = (e) => {
-    alert(JSON.stringify(comment));
     e.preventDefault();
+    alert(JSON.stringify({ ...data, comentario }));
     action({
       type: "STEP_THREE",
       payload: {
@@ -22,8 +23,20 @@ export const ThirdStep = () => {
     });
   };
   const handleChange = (e) => {
-    setComment(e.target.value);
+    setComentario(e.target.value);
   };
+
+  const getLocalData = () => {
+    const usr = localStorage.getItem("usr_42k");
+    if (usr) {
+      console.log(usr);
+      setData(JSON.parse(usr));
+    }
+  };
+
+  useEffect(() => {
+    getLocalData();
+  }, []);
   return (
     <div className="thirdStep">
       <div className="thirdStep_log">
@@ -38,11 +51,11 @@ export const ThirdStep = () => {
           </p>
           <h3>ES MUCHO MÁS QUE CORRER:</h3>
           <textarea
-            name="comment"
-            id="commentInput"
+            name="comentario"
+            id="comentarioInput"
             rows="8"
             cols={10}
-            value={comment}
+            value={comentario}
             onChange={handleChange}
             required
           ></textarea>

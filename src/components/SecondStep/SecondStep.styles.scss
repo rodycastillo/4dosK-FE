@@ -2,14 +2,15 @@
     background-image: url("../../assets/img/app/02/fondo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
-    width: 100vw;
+    height: 810px;
+    width: 1080px;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     &_section {
         height: 100%;
         background-color: #C6D420;
-        width: 243px;
+        width: 243.81px;
         border-radius: 0 42.5px 42.5px 0;
         display: flex;
         flex-direction: column;
@@ -19,25 +20,28 @@
             h1 {
                 color: #fff;
                 font-size: 83px;
+                font-family: "Roboto-MediumItalic";
             }
             h3 {
                 color: #fff;
                 font-size: 27px;
+                font-family: "Roboto-MediumItalic";
             }
         }
         &-btns {
             align-self: flex-end;
             margin-right: 2rem;
             button {
-                width: 100px;
+                width: 85.71px;
+                height: 30px;
                 border: none;
-                font-size: 12px;
+                font-size: 11.9px;
                 background-color: #393938;
                 border-radius: 5px;
                 color: #fff;
                 text-transform: uppercase;
                 margin-bottom: 2rem;
-                padding: 10px 15px;
+                font-family: "Roboto-Regular";
             }
         }
     }
@@ -63,6 +67,9 @@
         &-preview {
             height: 600px;
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
     &_facts {

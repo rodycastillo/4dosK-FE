@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Webcam from "react-webcam";
 import { AppContext } from "../../context/AppContext";
 import btn from "../../assets/img/app/02/btn.png";
@@ -11,24 +11,39 @@ export const SecondStep = () => {
   const [img, setImg] = React.useState("");
   const webCamRef = React.useRef(null);
   const [isShow, setIsShow] = React.useState(true);
+  const [data, setData] = React.useState({});
 
-  const videoConstraints = {
-    width: 1280,
-    height: 720,
-    facingMode: "user",
-  };
+  // const videoConstraints = {
+  //   width: 1280,
+  //   height: 720,
+  //   facingMode: "user",
+  // };
 
   const takePicture = () => {
     const imgSrc = webCamRef.current.getScreenshot({
-      width: 4032,
-      height: 3024,
+      width: 1080,
+      height: 1080,
     });
     console.log("imageSrc", imgSrc);
     setImg(imgSrc);
     setIsShow(false);
   };
 
+  const getLocalData = () => {
+    const usr = localStorage.getItem("usr_42k");
+    if (usr) {
+      console.log(usr);
+      setData(JSON.parse(usr));
+    }
+  };
+
+  useEffect(() => {
+    getLocalData();
+  }, []);
+
   const handleNextStep = () => {
+    localStorage.setItem("usr_42k", JSON.stringify({ ...data, foto: img }));
+    // localStorage.setItem("photo_42k", JSON.stringify(img));
     action({
       type: "STEP_THREE",
       payload: {
@@ -50,8 +65,11 @@ export const SecondStep = () => {
           </h3>
         </div>
         <div className="secondStep_section-btns">
-          <button onClick={() => setIsShow(!isShow)}>Reintentar</button> <br />
-          <button onClick={handleNextStep}>Siguiente</button>
+          <button onClick={() => setIsShow(!isShow)} disabled={isShow}>
+            Reintentar
+          </button>{" "}
+          <br />
+          <button onClick={handleNextStep}>Enviar</button>
         </div>
       </div>
       <div className="secondStep_camera">
@@ -60,10 +78,10 @@ export const SecondStep = () => {
             <Webcam
               ref={webCamRef}
               audio={false}
-              height={600}
-              screenshotFormat="image/jpeg"
+              height={533}
+              screenshotFormat="image/base64"
               width={533}
-              videoConstraints={videoConstraints}
+              // videoConstraints={videoConstraints}
               screenshotQuality={1}
             ></Webcam>
             <button className="secondStep_camera-btn" onClick={takePicture}>
@@ -72,7 +90,7 @@ export const SecondStep = () => {
           </>
         ) : (
           <div className="secondStep_camera-preview">
-            <img src={img} style={{ height: 300, width: 533 }} alt="TEST CAM" />
+            <img src={img} style={{ height: 390, width: 533 }} alt="TEST CAM" />
           </div>
         )}
       </div>
