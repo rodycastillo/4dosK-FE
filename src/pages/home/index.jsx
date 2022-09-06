@@ -1,11 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import "./index.scss";
-import phrase from "../../assets/img/home/phrase.png";
-import logo from "../../assets/img/common/logo_falabella.png";
+// import phrase from "../../assets/img/home/phrase.png";
+// import logo from "../../assets/img/common/logo_falabella.png";
 
 export const Home = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // const handleClick = () => {
   //   console.log("Hola");
