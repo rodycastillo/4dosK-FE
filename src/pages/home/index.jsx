@@ -7,13 +7,16 @@ import logo from "../../assets/img/common/logo_falabella.png";
 export const Home = () => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    console.log("Hola");
-    return navigate("/app");
-  };
+  // const handleClick = () => {
+  //   console.log("Hola");
+  //   return navigate("/app");
+  // };
   return (
     <div className="contain">
-      <div className="contain_box">
+      <code>{window.screen.width}</code>
+      <code>{window.screen.height}</code>
+      <p>V0.1</p>
+      {/* <div className="contain_box">
         <div className="contain_box-bg">
           <div className="contain_box-bg-imgs">
             <img src={phrase} className="pl-3" alt="phrase img" />
@@ -26,7 +29,7 @@ export const Home = () => {
           </p>
           <button onClick={handleClick}>EMPEZAR</button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
