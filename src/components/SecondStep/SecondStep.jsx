@@ -20,8 +20,8 @@ export const SecondStep = () => {
 
   const takePicture = () => {
     const imgSrc = webCamRef.current.getScreenshot({
-      width: window.screen.availWidth,
-      height: window.screen.availHeight,
+      width: 4032,
+      height: 3024,
     });
     console.log("imageSrc", imgSrc);
     setImg(imgSrc);

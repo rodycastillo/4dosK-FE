@@ -57,6 +57,7 @@ export const FirstStep = () => {
                 name="names"
                 value={userData.names}
                 onChange={handleChangeInput}
+                required
               />
             </div>
             <div className="mb-3">
@@ -67,6 +68,7 @@ export const FirstStep = () => {
                 name="lastname"
                 value={userData.lastname}
                 onChange={handleChangeInput}
+                required
               />
             </div>
             <div className="mb-3">
@@ -77,6 +79,7 @@ export const FirstStep = () => {
                 name="email"
                 value={userData.email}
                 onChange={handleChangeInput}
+                required
               />
             </div>
             <div className="firstStep_contain-form-box-age">
@@ -87,6 +90,7 @@ export const FirstStep = () => {
                     type="radio"
                     value={true}
                     name="age"
+                    required
                     onChange={handleChangeInput}
                   />{" "}
                   Sí

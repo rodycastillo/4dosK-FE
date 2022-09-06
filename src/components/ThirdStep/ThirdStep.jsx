@@ -44,6 +44,7 @@ export const ThirdStep = () => {
             cols={10}
             value={comment}
             onChange={handleChange}
+            required
           ></textarea>
           <button type="submit">Enviar</button>
         </form>
