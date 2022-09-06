@@ -13,18 +13,11 @@ export const SecondStep = () => {
   const [isShow, setIsShow] = React.useState(true);
   const [data, setData] = React.useState({});
 
-  // const videoConstraints = {
-  //   width: 1280,
-  //   height: 720,
-  //   facingMode: "user",
-  // };
-
   const takePicture = () => {
     const imgSrc = webCamRef.current.getScreenshot({
-      width: 1080,
-      height: 810,
+      width: 2388,
+      height: 1668,
     });
-    console.log("imageSrc", imgSrc);
     setImg(imgSrc);
     setIsShow(false);
   };
@@ -32,7 +25,6 @@ export const SecondStep = () => {
   const getLocalData = () => {
     const usr = localStorage.getItem("usr_42k");
     if (usr) {
-      console.log(usr);
       setData(JSON.parse(usr));
     }
   };
@@ -43,7 +35,6 @@ export const SecondStep = () => {
 
   const handleNextStep = () => {
     localStorage.setItem("usr_42k", JSON.stringify({ ...data, foto: img }));
-    // localStorage.setItem("photo_42k", JSON.stringify(img));
     action({
       type: "STEP_THREE",
       payload: {

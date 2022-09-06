@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../context/AppContext";
 import phrase from "../../assets/img/app/04/phrase.png";
 import brand from "../../assets/img/common/logo_falabella.png";
+import arrowLeft from "../../assets/img/common/arrow_left.svg";
 import "./LastStep.styles.scss";
-import { useNavigate } from "react-router-dom";
 
 export const LastStep = () => {
   const { action } = useContext(AppContext);
@@ -23,6 +24,9 @@ export const LastStep = () => {
   return (
     <div className="lastStep">
       <div className="lastStep_contain">
+        <button className="lastStep_contain-btnBack" onClick={handleReset}>
+          <img src={arrowLeft} alt="arrowLeft icon" />
+        </button>
         <div className="lastStep_contain-phrase">
           <img src={phrase} alt="phrase falabella" />
         </div>
@@ -33,7 +37,6 @@ export const LastStep = () => {
             El día de la carrera podrás ver tu imagen <br />
             en una de nuestras piezas publicitarias
           </p>
-          <button onClick={handleReset}>Regresar</button>
         </div>
       </div>
       <div className="lastStep_brand">

@@ -8,13 +8,14 @@ import "./ThirdStep.styles.scss";
 export const ThirdStep = () => {
   const { action } = useContext(AppContext);
   const [comentario, setComentario] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
   const [data, setData] = useState({});
 
   const handleSubmit = async (e) => {
+    setIsDisabled(true);
     e.preventDefault();
     try {
       const bodyFormData = new FormData();
-      console.log(JSON.stringify({ comentario: comentario, ...data }));
       bodyFormData.append("nombres", data.nombres);
       bodyFormData.append("apellidos", data.apellidos);
       bodyFormData.append("email", data.email);
@@ -36,6 +37,7 @@ export const ThirdStep = () => {
           step_four: true,
         },
       });
+      setIsDisabled(false);
     } catch (error) {
       console.log(error);
     }
@@ -47,7 +49,6 @@ export const ThirdStep = () => {
   const getLocalData = () => {
     const usr = JSON.parse(localStorage.getItem("usr_42k"));
     if (usr) {
-      console.log(usr);
       setData(usr);
     }
   };
@@ -77,7 +78,9 @@ export const ThirdStep = () => {
             onChange={handleChange}
             required
           ></textarea>
-          <button type="submit">Enviar</button>
+          <button type="submit" disabled={isDisabled}>
+            Enviar
+          </button>
         </form>
         <div className="thirdStep_contain-brand">
           <img src={brand} alt="brand falabella" />

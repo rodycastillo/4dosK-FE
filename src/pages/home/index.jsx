@@ -8,7 +8,6 @@ export const Home = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    console.log("Hola");
     return navigate("/app");
   };
   return (

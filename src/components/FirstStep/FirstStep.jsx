@@ -24,7 +24,6 @@ export const FirstStep = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(JSON.stringify(userData, null, 4));
     localStorage.setItem("usr_42k", JSON.stringify(userData));
     action({
       type: "STEP_TWO",
