@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
 import { AppContext } from "../../context/AppContext";
 import phrase from "../../assets/img/app/03/phrase.png";
 import brand from "../../assets/img/common/logo_falabella.png";
@@ -9,28 +9,46 @@ export const ThirdStep = () => {
   const { action } = useContext(AppContext);
   const [comentario, setComentario] = useState("");
   const [data, setData] = useState({});
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(JSON.stringify({ comentario: comentario, ...data }));
-    action({
-      type: "STEP_THREE",
-      payload: {
-        step_one: false,
-        step_two: false,
-        step_three: false,
-        step_four: true,
-      },
-    });
+    try {
+      const bodyFormData = new FormData();
+      console.log(JSON.stringify({ comentario: comentario, ...data }));
+      bodyFormData.append("nombres", data.nombres);
+      bodyFormData.append("apellidos", data.apellidos);
+      bodyFormData.append("email", data.email);
+      bodyFormData.append("mayor_edad", data.mayor_edad);
+      bodyFormData.append("uso_informacion", data.uso_informacion);
+      bodyFormData.append("terminos_politicas", data.terminos_politicas);
+      bodyFormData.append("foto", data.foto);
+      bodyFormData.append("comentario", comentario);
+      await axios.post(
+        "https://likeseasons.com/appsaga/api/index.php/lead/set",
+        bodyFormData
+      );
+      await action({
+        type: "STEP_THREE",
+        payload: {
+          step_one: false,
+          step_two: false,
+          step_three: false,
+          step_four: true,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
   const handleChange = (e) => {
     setComentario(e.target.value);
   };
 
   const getLocalData = () => {
-    const usr = localStorage.getItem("usr_42k");
+    const usr = JSON.parse(localStorage.getItem("usr_42k"));
     if (usr) {
       console.log(usr);
-      setData(JSON.parse(usr));
+      setData(usr);
     }
   };
 
