@@ -7,9 +7,10 @@ import { useGetData } from "../../hooks/useGetData";
 export const Download = () => {
   const [isDisabled, setIsDisabled] = React.useState(false);
   const { posts } = useGetData();
-  const images = posts.map(({ id, foto }) => {
+  console.log(posts);
+  const images = posts.map(({ id, foto, nombres, apellidos, comentario }) => {
     // eslint-disable-next-line no-new-object
-    return { id, foto };
+    return { id, foto, nombres, apellidos, comentario };
   });
 
   const handleDownload = () => {
@@ -19,10 +20,15 @@ export const Download = () => {
     const zip = new JSZip();
     let count = 0;
     const time = parseInt(Date.now());
-    images.forEach(async (qr) => {
+    images.forEach(async (post) => {
       try {
-        const file = await JSZipUtils.getBinaryContent(qr.foto);
-        zip.file(`${qr.id}.png`, file);
+        const folder = zip.folder(`user_0${post.id}`);
+        const file = await JSZipUtils.getBinaryContent(post.foto);
+        folder.file(
+          "data.txt",
+          `\n Nombre: ${post.nombres}\n Apellidos: ${post.apellidos} \n Comentario: ${post.comentario}`
+        );
+        folder.file(`${post.id}.png`, file);
         count++;
         if (count === images.length) {
           zip.generateAsync({ type: "blob" }).then(function (content) {
