@@ -19,6 +19,7 @@ export const SecondStep = () => {
       height: 1668,
     });
     setImg(imgSrc);
+    console.log(imgSrc);
     setIsShow(false);
   };
 
@@ -72,7 +73,7 @@ export const SecondStep = () => {
               ref={webCamRef}
               audio={false}
               height={533}
-              screenshotFormat="image/base64"
+              screenshotFormat="image/png"
               width={533}
               // videoConstraints={videoConstraints}
               screenshotQuality={1}

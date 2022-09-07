@@ -22,12 +22,9 @@ export const ThirdStep = () => {
       bodyFormData.append("mayor_edad", data.mayor_edad);
       bodyFormData.append("uso_informacion", data.uso_informacion);
       bodyFormData.append("terminos_politicas", data.terminos_politicas);
-      bodyFormData.append("foto", data.foto);
+      bodyFormData.append("foto", data.foto.split(";base64,").pop());
       bodyFormData.append("comentario", comentario);
-      await axios.post(
-        "https://likeseasons.com/appsaga/api/index.php/lead/set",
-        bodyFormData
-      );
+      await axios.post("http://localhost:7070/api/v1/saveForm", bodyFormData);
       await action({
         type: "STEP_THREE",
         payload: {

@@ -7,6 +7,12 @@ import { AppRouter } from './routes/AppRouter';
 import { AppProvider } from './context/AppContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+window.addEventListener("load",function() {
+  setTimeout(function(){
+      // This hides the address bar:
+      window.scrollTo(0, 1);
+  }, 0);
+});
 root.render(
   <React.StrictMode>
     <BrowserRouter>

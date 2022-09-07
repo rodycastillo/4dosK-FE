@@ -52,10 +52,10 @@ export const Download = () => {
           </button>
         </div>
       )}
-      <ul className="row">
+      <div className="row">
         {posts.map((post, i) => (
           <>
-            <li className="col p-3" key={i}>
+            <div className="col p-3" key={i}>
               <div className="card" style={{ width: "18rem" }}>
                 <img
                   src={post.foto}
@@ -70,10 +70,10 @@ export const Download = () => {
                   <p className="card-text">Comentario: {post.comentario}</p>
                 </div>
               </div>
-            </li>
+            </div>
           </>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
