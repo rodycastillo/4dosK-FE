@@ -1,0 +1,67 @@
+.CardGallery {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+//   margin: 1rem auto 0;
+  border: none;
+  &_flex {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    &-boxImg {
+      width: 960px;
+      height: 100%;
+      background-color: #000;
+      position: relative;
+      img {
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+    }
+    &-content {
+      width: 960px;
+      height: 100%;
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: cover;
+      &-phrase {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        width: 900px;
+        height: 100%;
+        p{
+            font-size: 164px;
+            line-height: 164px;
+            font-family: "Roboto-BoldCondensedItalic";
+            color: #fff;
+            text-transform: uppercase;
+        }
+        h5 {
+            align-self: flex-start !important;
+            font-family: "Roboto-BoldCondensedItalic";
+            font-size: 60px;
+            color: #000;
+            text-transform: uppercase;
+        }
+      }
+      &-logo {
+        width: 144.21px;
+        height: 216.1px;
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+      }
+    }
+  }
+}

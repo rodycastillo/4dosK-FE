@@ -7,7 +7,6 @@ import { useGetData } from "../../hooks/useGetData";
 export const Download = () => {
   const [isDisabled, setIsDisabled] = React.useState(false);
   const { posts } = useGetData();
-  console.log(posts);
   const images = posts.map(({ id, foto, nombres, apellidos, comentario }) => {
     // eslint-disable-next-line no-new-object
     return { id, foto, nombres, apellidos, comentario };
@@ -15,7 +14,6 @@ export const Download = () => {
 
   const handleDownload = () => {
     setIsDisabled(true);
-    console.log("Download");
     console.time();
     const zip = new JSZip();
     let count = 0;
@@ -26,7 +24,7 @@ export const Download = () => {
         const file = await JSZipUtils.getBinaryContent(post.foto);
         folder.file(
           "data.txt",
-          `\n Nombre: ${post.nombres}\n Apellidos: ${post.apellidos} \n Comentario: ${post.comentario}`
+          `\nNombre: ${post.nombres}\n Apellidos: ${post.apellidos}\n Comentario: ${post.comentario}`
         );
         folder.file(`${post.id}.png`, file);
         count++;
@@ -62,7 +60,7 @@ export const Download = () => {
         {posts.map((post, i) => (
           <>
             <div className="col p-3" key={i}>
-              <div className="card" style={{ width: "18rem" }}>
+              <div className="card mx-auto" style={{ width: "18rem" }}>
                 <img
                   src={post.foto}
                   className="card-img-top"
