@@ -1,6 +1,7 @@
-import React, { useContext, useEffect } from "react";
-import Webcam from "react-webcam";
+import React, { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
+import { FormContext } from "../../context/FormContext";
+import Webcam from "react-webcam";
 import btn from "../../assets/img/app/02/btn.png";
 import phrase from "../../assets/img/app/02/phrase.png";
 import brand from "../../assets/img/common/logo_falabella.png";
@@ -16,11 +17,11 @@ const videoConstraints = {
 
 export const SecondStep = () => {
   const { action } = useContext(AppContext);
+  const { form, setForm } = useContext(FormContext);
   const [img, setImg] = React.useState("");
   const [facingMode, setFacingMode] = React.useState(FACING_MODE_USER);
   const webCamRef = React.useRef(null);
   const [isShow, setIsShow] = React.useState(true);
-  const [data, setData] = React.useState({});
 
   const takePicture = () => {
     const imgSrc = webCamRef.current.getScreenshot({
@@ -31,12 +32,6 @@ export const SecondStep = () => {
     setIsShow(false);
   };
 
-  const getLocalData = () => {
-    const usr = localStorage.getItem("usr_42k");
-    if (usr) {
-      setData(JSON.parse(usr));
-    }
-  };
   const handleClick = React.useCallback(() => {
     setFacingMode((prevState) =>
       prevState === FACING_MODE_USER
@@ -45,12 +40,8 @@ export const SecondStep = () => {
     );
   }, []);
 
-  useEffect(() => {
-    getLocalData();
-  }, []);
-
   const handleNextStep = () => {
-    localStorage.setItem("usr_42k", JSON.stringify({ ...data, foto: img }));
+    setForm({ ...form, foto: img });
     action({
       type: "STEP_THREE",
       payload: {

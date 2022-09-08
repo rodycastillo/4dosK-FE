@@ -1,28 +1,29 @@
-import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
+import React, { useState, useContext } from "react";
 import { AppContext } from "../../context/AppContext";
+import { FormContext } from "../../context/FormContext";
+import axios from "axios";
 import phrase from "../../assets/img/app/03/phrase.png";
 import brand from "../../assets/img/common/logo_falabella.png";
 import "./ThirdStep.styles.scss";
 
 export const ThirdStep = () => {
   const { action } = useContext(AppContext);
+  const { form } = useContext(FormContext);
   const [comentario, setComentario] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
-  const [data, setData] = useState({});
 
   const handleSubmit = async (e) => {
     setIsDisabled(true);
     e.preventDefault();
     try {
       const bodyFormData = new FormData();
-      bodyFormData.append("nombres", data.nombres);
-      bodyFormData.append("apellidos", data.apellidos);
-      bodyFormData.append("email", data.email);
-      bodyFormData.append("mayor_edad", data.mayor_edad);
-      bodyFormData.append("uso_informacion", data.uso_informacion);
-      bodyFormData.append("terminos_politicas", data.terminos_politicas);
-      bodyFormData.append("foto", data.foto);
+      bodyFormData.append("nombres", form.nombres);
+      bodyFormData.append("apellidos", form.apellidos);
+      bodyFormData.append("email", form.email);
+      bodyFormData.append("mayor_edad", form.mayor_edad);
+      bodyFormData.append("uso_informacion", form.uso_informacion);
+      bodyFormData.append("terminos_politicas", form.terminos_politicas);
+      bodyFormData.append("foto", form.foto);
       bodyFormData.append("comentario", comentario);
       await axios.post(
         "https://likeseasons.com/appsaga/api/index.php/lead/set",
@@ -46,16 +47,6 @@ export const ThirdStep = () => {
     setComentario(e.target.value);
   };
 
-  const getLocalData = () => {
-    const usr = JSON.parse(localStorage.getItem("usr_42k"));
-    if (usr) {
-      setData(usr);
-    }
-  };
-
-  useEffect(() => {
-    getLocalData();
-  }, []);
   return (
     <div className="thirdStep">
       <div className="thirdStep_log">

@@ -1,12 +1,14 @@
 import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { AppContext } from "../../context/AppContext";
+import { FormContext } from "../../context/FormContext";
 import phrase from "../../assets/img/app/01/phrase.png";
 import logo from "../../assets/img/common/logo_falabella.png";
-import { Link } from "react-router-dom";
 import "./FirstStep.styles.scss";
 
 export const FirstStep = () => {
   const { action } = useContext(AppContext);
+  const { setForm } = useContext(FormContext);
 
   const [userData, setUserData] = useState({
     nombres: "",
@@ -24,7 +26,7 @@ export const FirstStep = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("usr_42k", JSON.stringify(userData));
+    setForm({ ...userData });
     action({
       type: "STEP_TWO",
       payload: {
@@ -91,7 +93,12 @@ export const FirstStep = () => {
                     value={1}
                     name="mayor_edad"
                     required
-                    onChange={handleChangeInput}
+                    onChange={(e) =>
+                      setUserData({
+                        ...userData,
+                        [e.target.name]: 1,
+                      })
+                    }
                   />{" "}
                   Sí
                 </label>
@@ -100,7 +107,12 @@ export const FirstStep = () => {
                     type="radio"
                     value={0}
                     name="mayor_edad"
-                    onChange={handleChangeInput}
+                    onChange={(e) =>
+                      setUserData({
+                        ...userData,
+                        [e.target.name]: 0,
+                      })
+                    }
                   />{" "}
                   No
                 </label>
