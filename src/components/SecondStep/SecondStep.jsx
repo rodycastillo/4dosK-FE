@@ -78,9 +78,7 @@ export const SecondStep = () => {
             <Webcam
               ref={webCamRef}
               audio={false}
-              height={533}
               screenshotFormat="image/png"
-              width={533}
               videoConstraints={{ ...videoConstraints, facingMode }}
               screenshotQuality={1}
               forceScreenshotSourceSize="true"
@@ -97,7 +95,7 @@ export const SecondStep = () => {
           </>
         ) : (
           <div className="secondStep_camera-preview">
-            <img src={img} style={{ height: 390, width: 533 }} alt="TEST CAM" />
+            <img src={img} alt="TEST CAM" />
           </div>
         )}
       </div>

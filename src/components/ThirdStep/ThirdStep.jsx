@@ -13,9 +13,9 @@ export const ThirdStep = () => {
   const [isDisabled, setIsDisabled] = useState(false);
 
   const handleSubmit = async (e) => {
-    setIsDisabled(true);
     e.preventDefault();
     try {
+      setIsDisabled(true);
       const bodyFormData = new FormData();
       bodyFormData.append("nombres", form.nombres);
       bodyFormData.append("apellidos", form.apellidos);
@@ -65,6 +65,7 @@ export const ThirdStep = () => {
             id="comentarioInput"
             rows="8"
             cols={10}
+            disabled={isDisabled}
             value={comentario}
             onChange={handleChange}
             required
@@ -72,6 +73,13 @@ export const ThirdStep = () => {
           <button type="submit" disabled={isDisabled}>
             Enviar
           </button>
+          {isDisabled && (
+            <div className=" text-center">
+              <div className="spinner-border text-success" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          )}
         </form>
         <div className="thirdStep_contain-brand">
           <img src={brand} alt="brand falabella" />
