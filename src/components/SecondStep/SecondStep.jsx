@@ -28,7 +28,6 @@ export const SecondStep = () => {
       height: 1668,
     });
     setImg(imgSrc);
-    console.log(imgSrc);
     setIsShow(false);
   };
 
@@ -93,6 +92,7 @@ export const SecondStep = () => {
               width={533}
               videoConstraints={{ ...videoConstraints, facingMode }}
               screenshotQuality={1}
+              forceScreenshotSourceSize="true"
             ></Webcam>
             <button className="secondStep_camera-btnTake" onClick={takePicture}>
               <img src={btn} alt="btn take" />

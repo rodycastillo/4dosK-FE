@@ -1,8 +1,8 @@
+$generalWidth: 1080px;
+$generalHeight: 1920px;
+
 .CardGallery {
-  width: 1920px;
-  height: 1080px;
   overflow: hidden;
-//   margin: 1rem auto 0;
   border: none;
   &_flex {
     display: flex;
@@ -13,7 +13,6 @@
     height: 100%;
     border: none;
     &-boxImg {
-      width: 960px;
       height: 100%;
       background-color: #000;
       position: relative;
@@ -27,7 +26,6 @@
       }
     }
     &-content {
-      width: 960px;
       height: 100%;
       position: relative;
       background-repeat: no-repeat;
@@ -38,29 +36,25 @@
         align-items: center;
         justify-content: center;
         margin: auto;
-        width: 900px;
+        width: 85%;
         height: 100%;
-        p{
-            font-size: 164px;
-            line-height: 164px;
-            font-family: "Roboto-BoldCondensedItalic";
-            color: #fff;
-            text-transform: uppercase;
+        p {
+          align-self: flex-start !important;
+          font-family: "Roboto-BoldCondensedItalic";
+          color: #fff;
+          text-transform: uppercase;
         }
         h5 {
-            align-self: flex-start !important;
-            font-family: "Roboto-BoldCondensedItalic";
-            font-size: 60px;
-            color: #000;
-            text-transform: uppercase;
+          align-self: flex-start !important;
+          font-family: "Roboto-BoldCondensedItalic";
+          color: #000;
+          text-transform: uppercase;
         }
       }
       &-logo {
-        width: 144.21px;
-        height: 216.1px;
         position: absolute;
-        bottom: 2rem;
-        right: 2rem;
+        bottom: 0.5rem;
+        right: 0.5rem;
       }
     }
   }
