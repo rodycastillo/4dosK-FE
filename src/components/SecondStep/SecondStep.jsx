@@ -4,11 +4,20 @@ import { AppContext } from "../../context/AppContext";
 import btn from "../../assets/img/app/02/btn.png";
 import phrase from "../../assets/img/app/02/phrase.png";
 import brand from "../../assets/img/common/logo_falabella.png";
+import iconSwitch from "../../assets/img/common/camera_switch.svg";
 import "./SecondStep.styles.scss";
+
+const FACING_MODE_USER = "user";
+const FACING_MODE_ENVIRONMENT = "environment";
+
+const videoConstraints = {
+  facingMode: FACING_MODE_USER,
+};
 
 export const SecondStep = () => {
   const { action } = useContext(AppContext);
   const [img, setImg] = React.useState("");
+  const [facingMode, setFacingMode] = React.useState(FACING_MODE_USER);
   const webCamRef = React.useRef(null);
   const [isShow, setIsShow] = React.useState(true);
   const [data, setData] = React.useState({});
@@ -29,6 +38,13 @@ export const SecondStep = () => {
       setData(JSON.parse(usr));
     }
   };
+  const handleClick = React.useCallback(() => {
+    setFacingMode((prevState) =>
+      prevState === FACING_MODE_USER
+        ? FACING_MODE_ENVIRONMENT
+        : FACING_MODE_USER
+    );
+  }, []);
 
   useEffect(() => {
     getLocalData();
@@ -75,11 +91,17 @@ export const SecondStep = () => {
               height={533}
               screenshotFormat="image/png"
               width={533}
-              // videoConstraints={videoConstraints}
+              videoConstraints={{ ...videoConstraints, facingMode }}
               screenshotQuality={1}
             ></Webcam>
-            <button className="secondStep_camera-btn" onClick={takePicture}>
-              <img src={btn} alt="btn img" />
+            <button className="secondStep_camera-btnTake" onClick={takePicture}>
+              <img src={btn} alt="btn take" />
+            </button>
+            <button
+              className="secondStep_camera-btnSwitch"
+              onClick={handleClick}
+            >
+              <img src={iconSwitch} alt="btn switch camera" />
             </button>
           </>
         ) : (
