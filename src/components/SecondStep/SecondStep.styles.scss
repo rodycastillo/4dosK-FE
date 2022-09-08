@@ -52,9 +52,9 @@
     background-color: rgb(185, 185, 185);
     margin: auto 0 auto 2rem;
     position: relative;
+    overflow: hidden;
     video {
       position: absolute;
-      transform: rotateY(180deg);
       height: 100%;
       width: 100%;
       left: 50%;
@@ -62,7 +62,6 @@
       object-fit: cover;
       object-position: center;
     }
-    // overflow: hidden;
     &-btnTake {
       border: none;
       background-color: transparent;
@@ -101,7 +100,6 @@
       position: relative;
       img {
         position: absolute;
-        transform: rotateY(180deg);
         height: 100%;
         width: 100%;
         left: 50%;

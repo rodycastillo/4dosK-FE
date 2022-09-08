@@ -32,6 +32,10 @@ export const SecondStep = () => {
     setIsShow(false);
   };
 
+  const stylesWebCam = {
+    transform: facingMode === "user" ? "rotateY(180deg)" : "rotateY(0deg)",
+  };
+
   const handleClick = React.useCallback(() => {
     setFacingMode((prevState) =>
       prevState === FACING_MODE_USER
@@ -80,6 +84,7 @@ export const SecondStep = () => {
               audio={false}
               screenshotFormat="image/png"
               videoConstraints={{ ...videoConstraints, facingMode }}
+              style={stylesWebCam}
               screenshotQuality={1}
               forceScreenshotSourceSize="true"
             ></Webcam>

@@ -11,11 +11,11 @@ export const CardGallery = ({ props, bg, scss }) => {
     width: scss === 2 ? `calc(1080px/2)` : `calc(1080px / 4)`,
   };
   const CardStyle_bx_cm = {
-    fontSize: scss === 2 ? `70px` : `40px`,
-    lineHeight: scss === 2 ? `70px` : `40px`,
+    fontSize: scss === 2 ? `60px` : `45px`,
+    lineHeight: scss === 2 ? `60px` : `45px`,
   };
   const CardStyle_bx_head = {
-    fontSize: scss === 2 ? `50px` : `30px`,
+    fontSize: scss === 2 ? `30px` : `25px`,
   };
   const CardStyle_logo = {
     width: scss === 2 ? `80px` : `40px`,
