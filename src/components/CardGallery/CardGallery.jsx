@@ -6,7 +6,7 @@ export const CardGallery = ({ props, bg, scss }) => {
   const value = 4;
   const CardStyle = {
     width: scss === value ? `calc(1080px)` : `calc(1080px / 2)`,
-    height: scss === value ? `500px` : `370px`,
+    height: scss === value ? `480px` : `360px`,
   };
   const CardStyle_bx = {
     width: scss === value ? `calc(1080px/2)` : `calc(1080px / 4)`,
