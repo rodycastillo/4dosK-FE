@@ -6,7 +6,7 @@ export const useGetData = () => {
 
     const getData = async () => {
         try {
-            const {data} = await axios.get("https://likeseasons.com/appsaga/api/index.php/lead/list")
+            const {data} = await axios.get("https://falabella42k.com/api/index.php/lead/list")
             setPosts(data)
         } catch (error) {
             console.log(error)

@@ -5,13 +5,17 @@ import bg_1 from "../../assets/img/common/CARD_1.png";
 import bg_2 from "../../assets/img/common/CARD_2.png";
 
 export const Gallery = () => {
-  const { posts = [] } = useGetData();
-  const FirstArr = posts?.slice(0, 4);
-  const LastArr = posts?.slice(4, posts.length - 1);
-  const MiddleArr = posts?.slice(posts.length - 1, posts.length);
+  const { posts } = useGetData();
+  const newPosts = posts?.slice(posts.length - 9, posts.length);
+  const FirstArr = newPosts?.slice(0, 4);
+  const LastArr = newPosts?.slice(4, newPosts.length - 1);
+  const MiddleArr = newPosts?.slice(newPosts.length - 1, newPosts.length);
   const newArr = [...FirstArr, ...MiddleArr, ...LastArr];
   return (
-    <div className="container-fluid p-0 m-0">
+    <div
+      className="container-fluid p-0 m-0"
+      style={{ width: "1080px", height: "1920px", overflow: "hidden" }}
+    >
       <div className="row p-0 m-0">
         {newArr.map((e, index) => (
           <div

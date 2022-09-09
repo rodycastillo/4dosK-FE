@@ -26,7 +26,7 @@ export const ThirdStep = () => {
       bodyFormData.append("foto", form.foto);
       bodyFormData.append("comentario", comentario);
       await axios.post(
-        "https://likeseasons.com/appsaga/api/index.php/lead/set",
+        "https://falabella42k.com/api/index.php/lead/set",
         bodyFormData
       );
       await action({

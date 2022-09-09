@@ -6,17 +6,17 @@ export const CardGallery = ({ props, bg, scss }) => {
   const value = 4;
   const CardStyle = {
     width: scss === value ? `calc(1080px)` : `calc(1080px / 2)`,
-    height: scss === value ? `calc(1920px/4)` : `calc(1920px/6)`,
+    height: scss === value ? `500px` : `370px`,
   };
   const CardStyle_bx = {
     width: scss === value ? `calc(1080px/2)` : `calc(1080px / 4)`,
   };
   const CardStyle_bx_cm = {
-    fontSize: scss === value ? `60px` : `45px`,
-    lineHeight: scss === value ? `60px` : `45px`,
+    fontSize: scss === value ? `63px` : `47px`,
+    lineHeight: scss === value ? `63px` : `47px`,
   };
   const CardStyle_bx_head = {
-    fontSize: scss === value ? `30px` : `25px`,
+    fontSize: scss === value ? `32px` : `25px`,
   };
   const CardStyle_logo = {
     width: scss === value ? `80px` : `40px`,
