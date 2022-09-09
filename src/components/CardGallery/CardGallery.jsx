@@ -3,28 +3,28 @@ import logo from "../../assets/img/common/logo_falabella_high.png";
 import "./CardGallery.styles.scss";
 
 export const CardGallery = ({ props, bg, scss }) => {
+  const value = 4;
   const CardStyle = {
-    width: scss === 2 ? `calc(1080px)` : `calc(1080px / 2)`,
-    height: scss === 2 ? `calc(1920px/4)` : `calc(1920px/6)`,
+    width: scss === value ? `calc(1080px)` : `calc(1080px / 2)`,
+    height: scss === value ? `calc(1920px/4)` : `calc(1920px/6)`,
   };
   const CardStyle_bx = {
-    width: scss === 2 ? `calc(1080px/2)` : `calc(1080px / 4)`,
+    width: scss === value ? `calc(1080px/2)` : `calc(1080px / 4)`,
   };
   const CardStyle_bx_cm = {
-    fontSize: scss === 2 ? `60px` : `45px`,
-    lineHeight: scss === 2 ? `60px` : `45px`,
+    fontSize: scss === value ? `60px` : `45px`,
+    lineHeight: scss === value ? `60px` : `45px`,
   };
   const CardStyle_bx_head = {
-    fontSize: scss === 2 ? `30px` : `25px`,
+    fontSize: scss === value ? `30px` : `25px`,
   };
   const CardStyle_logo = {
-    width: scss === 2 ? `80px` : `40px`,
-    height: scss === 2 ? `120px` : `60px`,
+    width: scss === value ? `80px` : `40px`,
+    height: scss === value ? `120px` : `60px`,
   };
   const bgStyle = {
     backgroundImage: `url(${bg})`,
   };
-  console.log(scss);
   return (
     <div className="CardGallery" style={CardStyle}>
       <div className="CardGallery_flex">

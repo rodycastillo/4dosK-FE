@@ -12,9 +12,14 @@ export const useGetData = () => {
             console.log(error)
         }
     }
+    useEffect(()=> {
+        getData()
+    },[])
 
     useEffect(()=>{
-        getData()
+        setInterval(() => {
+            getData()
+        }, 30000);
     },[])
 
   return {
