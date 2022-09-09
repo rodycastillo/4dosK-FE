@@ -31,6 +31,7 @@ $generalHeight: 1920px;
       position: relative;
       background-repeat: no-repeat;
       background-size: cover;
+      overflow: hidden;
       &-phrase {
         display: flex;
         flex-direction: column;
