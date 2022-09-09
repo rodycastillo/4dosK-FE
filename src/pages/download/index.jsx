@@ -23,7 +23,7 @@ export const Download = () => {
         const folder = zip.folder(`user_0${post.id}`);
         const file = await JSZipUtils.getBinaryContent(post.foto);
         folder.file(
-          "data.txt",
+          "info.txt",
           `\nNombre: ${post.nombres}\n Apellidos: ${post.apellidos}\n Comentario: ${post.comentario}`
         );
         folder.file(`${post.id}.png`, file);
@@ -43,7 +43,7 @@ export const Download = () => {
 
   return (
     <div className="container">
-      <h3 className="text-center my-3 text-white">Fotos del usuario</h3>
+      <h3 className="text-center my-3 text-white">Fotos de los usuarios</h3>
       {posts.length > 0 && (
         <div className="d-flex justify-content-center align-items-center flex-column">
           <p className="text-center text-white">Descargar Imagenes</p>{" "}
@@ -54,6 +54,13 @@ export const Download = () => {
           >
             Download
           </button>
+        </div>
+      )}
+      {isDisabled && (
+        <div className="text-center mt-3">
+          <div class="spinner-border text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
         </div>
       )}
       <div className="row">
