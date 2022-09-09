@@ -33,7 +33,7 @@ export const SecondStep = () => {
   };
 
   const stylesWebCam = {
-    transform: facingMode === "user" ? "rotateY(180deg)" : "rotateY(0deg)",
+    transform: "rotateY(180deg)",
   };
 
   const handleClick = React.useCallback(() => {
@@ -103,12 +103,19 @@ export const SecondStep = () => {
           width={296}
           height={97}
         />
-        <button className="secondStep_facts-btnTake" onClick={takePicture}>
-          <img src={btn} alt="btn take" />
-        </button>
-        <button className="secondStep_facts-btnSwitch" onClick={handleClick}>
-          <img src={iconSwitch} alt="btn switch camera" />
-        </button>
+        {isShow && (
+          <>
+            <button className="secondStep_facts-btnTake" onClick={takePicture}>
+              <img src={btn} alt="btn take" />
+            </button>
+            <button
+              className="secondStep_facts-btnSwitch"
+              onClick={handleClick}
+            >
+              <img src={iconSwitch} alt="btn switch camera" />
+            </button>
+          </>
+        )}
         <img
           src={brand}
           className="secondStep_facts-lastImg"
