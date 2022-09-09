@@ -25,8 +25,8 @@ export const SecondStep = () => {
 
   const takePicture = () => {
     const imgSrc = webCamRef.current.getScreenshot({
-      width: 2388,
-      height: 1668,
+      width: 1710,
+      height: 1280,
     });
     setImg(imgSrc);
     setIsShow(false);
@@ -85,18 +85,9 @@ export const SecondStep = () => {
               screenshotFormat="image/png"
               videoConstraints={{ ...videoConstraints, facingMode }}
               style={stylesWebCam}
-              screenshotQuality={1}
+              screenshotQuality={0.8}
               forceScreenshotSourceSize="true"
             ></Webcam>
-            <button className="secondStep_camera-btnTake" onClick={takePicture}>
-              <img src={btn} alt="btn take" />
-            </button>
-            <button
-              className="secondStep_camera-btnSwitch"
-              onClick={handleClick}
-            >
-              <img src={iconSwitch} alt="btn switch camera" />
-            </button>
           </>
         ) : (
           <div className="secondStep_camera-preview">
@@ -112,6 +103,12 @@ export const SecondStep = () => {
           width={296}
           height={97}
         />
+        <button className="secondStep_facts-btnTake" onClick={takePicture}>
+          <img src={btn} alt="btn take" />
+        </button>
+        <button className="secondStep_facts-btnSwitch" onClick={handleClick}>
+          <img src={iconSwitch} alt="btn switch camera" />
+        </button>
         <img
           src={brand}
           className="secondStep_facts-lastImg"

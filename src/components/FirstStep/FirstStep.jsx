@@ -107,6 +107,7 @@ export const FirstStep = () => {
                     type="radio"
                     value={0}
                     name="mayor_edad"
+                    required
                     onChange={(e) =>
                       setUserData({
                         ...userData,
@@ -143,6 +144,7 @@ export const FirstStep = () => {
                   value={1}
                   id="uso_informacionUser"
                   name="uso_informacion"
+                  required
                   onChange={(e) =>
                     setUserData({
                       ...userData,
@@ -172,6 +174,7 @@ export const FirstStep = () => {
                   value={1}
                   id="terminos_politicas"
                   name="terminos_politicas"
+                  required
                   onChange={(e) =>
                     setUserData({
                       ...userData,
