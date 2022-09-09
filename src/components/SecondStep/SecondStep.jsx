@@ -85,7 +85,7 @@ export const SecondStep = () => {
               screenshotFormat="image/png"
               videoConstraints={{ ...videoConstraints, facingMode }}
               style={stylesWebCam}
-              screenshotQuality={0.8}
+              screenshotQuality={1}
               forceScreenshotSourceSize="true"
             ></Webcam>
           </>
