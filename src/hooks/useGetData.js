@@ -17,9 +17,12 @@ export const useGetData = () => {
     },[])
 
     useEffect(()=>{
-        setInterval(() => {
+        const intervalId = setInterval(() => {
             getData()
         }, 30000);
+        return () => {
+            clearInterval(intervalId)
+        }
     },[])
 
   return {

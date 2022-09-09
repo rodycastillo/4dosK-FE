@@ -30,7 +30,7 @@ export const CardGallery = ({ props, bg, scss }) => {
       <div className="CardGallery_flex">
         <div className="CardGallery_flex-boxImg" style={CardStyle_bx}>
           <img
-            src={props.foto}
+            src={props.foto_resize}
             className="img-fluid"
             alt={`Foto user 0${props.id}`}
           />
